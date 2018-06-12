@@ -4,7 +4,6 @@ import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoFilter from "./TodoFilter";
 
-
 class TodoApp extends Component {
 
   constructor(props) {
@@ -37,7 +36,6 @@ class TodoApp extends Component {
       this.setState((prevState) => {
         return {items: prevState.items.concat(newItem)};
       });
-
 
     }
     console.log(this.state.items);
@@ -76,50 +74,29 @@ class TodoApp extends Component {
   }
 
   handleFilterAllChange(filterAll) {
-    this.setState({
-      filterAll: filterAll,
-      filterActive: false,
-      filterCompleted: false
-    });
+    this.setState({filterAll: filterAll, filterActive: false, filterCompleted: false});
   }
 
   handleFilterActiveChange(filterActive) {
-    this.setState({
-      filterAll: false,
-      filterActive: filterActive,
-      filterCompleted: false
-    });
+    this.setState({filterAll: false, filterActive: filterActive, filterCompleted: false});
   }
 
   handleFilterCompletedChange(filterCompleted) {
-    this.setState({
-      filterAll: false,
-      filterActive: false,
-      filterCompleted: filterCompleted
-    });
+    this.setState({filterAll: false, filterActive: false, filterCompleted: filterCompleted});
   }
 
   render() {
-    var numberItemLeft = this.state.items.reduce(function (accum, item) {
-    				return item.done ? accum : accum + 1;
-    			}, 0);
+    var numberItemLeft = this.state.items.reduce(function(accum, item) {
+      return item.done
+        ? accum
+        : accum + 1;
+    }, 0);
 
     return (<div>
       <TodoHeader/>
       <TodoForm addItem={this.addItem}/>
-      <TodoList items={this.state.items}
-        deleteItem={this.deleteItem}
-        markItemDone={this.markItemDone}
-        filterAll={this.state.filterAll}
-        filterActive={this.state.filterActive}
-        filterCompleted={this.state.filterCompleted}/>
-      <TodoFilter numberItemLeft={numberItemLeft}
-        isAll={this.state.filterAll}
-        isActive={this.state.filterActive}
-        isCompleted={this.state.filterCompleted}
-        onFilterAllChange={this.handleFilterAllChange}
-        onFilterActiveChange={this.handleFilterActiveChange}
-        onFilterCompletedChange={this.handleFilterCompletedChange}/>
+      <TodoList items={this.state.items} deleteItem={this.deleteItem} markItemDone={this.markItemDone} filterAll={this.state.filterAll} filterActive={this.state.filterActive} filterCompleted={this.state.filterCompleted}/>
+      <TodoFilter numberItemLeft={numberItemLeft} isAll={this.state.filterAll} isActive={this.state.filterActive} isCompleted={this.state.filterCompleted} onFilterAllChange={this.handleFilterAllChange} onFilterActiveChange={this.handleFilterActiveChange} onFilterCompletedChange={this.handleFilterCompletedChange}/>
     </div>)
   }
 }
