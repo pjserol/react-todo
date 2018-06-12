@@ -18,6 +18,6 @@
   cursor: pointer;
 }
 
-.filter:active {
-  font-weight: bold;
+.filter.selected {
+    font-weight: bold;
 }

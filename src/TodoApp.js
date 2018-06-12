@@ -71,6 +71,10 @@ class TodoApp extends Component {
     });
   }
 
+  handleNumberItemChange() {
+    return 2;
+  }
+
   handleFilterAllChange(filterAll) {
     this.setState({
       filterAll: filterAll,
@@ -96,6 +100,9 @@ class TodoApp extends Component {
   }
 
   render() {
+    var numberItemLeft = this.state.items.reduce(function (accum, item) {
+    				return item.done ? accum : accum + 1;
+    			}, 0);
 
     return (<div>
       <TodoHeader/>
@@ -106,7 +113,11 @@ class TodoApp extends Component {
         filterAll={this.state.filterAll}
         filterActive={this.state.filterActive}
         filterCompleted={this.state.filterCompleted}/>
-      <TodoFilter onFilterAllChange={this.handleFilterAllChange}
+      <TodoFilter numberItemLeft={numberItemLeft}
+        isAll={this.state.filterAll}
+        isActive={this.state.filterActive}
+        isCompleted={this.state.filterCompleted}
+        onFilterAllChange={this.handleFilterAllChange}
         onFilterActiveChange={this.handleFilterActiveChange}
         onFilterCompletedChange={this.handleFilterCompletedChange}/>
     </div>)

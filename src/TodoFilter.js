@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import classNames from "classnames";
 import "./TodoFilter.css";
 
 class TodoFilter extends Component {
@@ -23,11 +24,12 @@ class TodoFilter extends Component {
   }
 
   render() {
+    //   <span className={cx(filter, this.props.isAll selected)} onClick={() => this.onClickAllChange()}>All</span>
     return (<div className="todo-filter">
-      <span>.. item left </span>
-      <span className="filter" onClick={() => this.onClickAllChange()}>All</span>
-      <span className="filter" onClick={() => this.onClickActiveChange()}>Active</span>
-      <span className="filter" onClick={() => this.onClickCompletedChange()}>Completed</span>
+      <span>{this.props.numberItemLeft} items left </span>
+      <span className={classNames('filter', {selected: this.props.isAll})} onClick={() => this.onClickAllChange()}>All</span>
+      <span className={classNames('filter', {selected: this.props.isActive})} onClick={() => this.onClickActiveChange()}>Active</span>
+      <span className={classNames('filter', {selected: this.props.isCompleted})} onClick={() => this.onClickCompletedChange()}>Completed</span>
     </div>);
   }
 }
