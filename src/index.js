@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import rootReducer from './reducers';
 import './css/index.css';
-import TodoApp from './components/TodoApp';
+import App from './components/App';
 
 var destination = document.querySelector("#container");
 
@@ -13,5 +13,5 @@ const store = createStore(rootReducer,
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(<Provider store={store}>
-  <TodoApp/>
+  <App/>
 </Provider>, destination);

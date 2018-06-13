@@ -13,7 +13,6 @@ class TodoItems extends Component {
   }
 
   onClickDelete(key) {
-    //this.props.deleteItem(key);
     this.props.dispatch(removeItem(key));
   }
 
