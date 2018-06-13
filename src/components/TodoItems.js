@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Glyphicon} from 'react-bootstrap';
-import "./TodoItems.css"
+import { connect } from 'react-redux'
+import { doneItem, removeItem } from '../actions'
+import "../css/TodoItems.css"
 
 class TodoItems extends Component {
 
@@ -11,11 +13,12 @@ class TodoItems extends Component {
   }
 
   onClickDelete(key) {
-    this.props.deleteItem(key);
+    //this.props.deleteItem(key);
+    this.props.dispatch(removeItem(key));
   }
 
   onClickDone(key) {
-    this.props.markItemDone(key);
+    this.props.dispatch(doneItem(key));
   }
 
   render() {
@@ -34,4 +37,4 @@ class TodoItems extends Component {
   }
 };
 
-export default TodoItems;
+export default connect() (TodoItems);

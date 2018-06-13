@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./TodoHeader.css";
+import "../css/TodoHeader.css";
 
 class TodoHeader extends Component {
   render() {

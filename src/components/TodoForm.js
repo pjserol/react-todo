@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-import "./TodoForm.css";
+import { connect } from 'react-redux'
+import { addItem } from '../actions'
+import "../css/TodoForm.css";
 
 class TodoForm extends Component {
 
@@ -15,10 +17,10 @@ class TodoForm extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    var newItemValue = this.refs.itemName.value;
+    var text = this.refs.itemName.value;
 
-    if (newItemValue) {
-      this.props.addItem({newItemValue});
+    if (text) {
+      this.props.dispatch(addItem({text}));
       this.refs.form.reset();
     }
   }
@@ -33,4 +35,4 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoForm;
+export default connect()(TodoForm);

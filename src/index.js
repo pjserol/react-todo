@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import TodoApp from './TodoApp';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import rootReducer from './reducers';
+import './css/index.css';
+import TodoApp from './components/TodoApp';
 
-var destination = document.querySelector("#container")
+var destination = document.querySelector("#container");
 
-var items = [];
-items.push({key: 1528702302062, text: "learn react", done: false});
-items.push({key: 1528702302089, text: "learn Go", done: true});
-items.push({key: 1528702302348, text: "blablabla", done: true});
+const store = createStore(rootReducer,
+/* preloadedState, */
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-ReactDOM.render(<div>
-  <TodoApp initItems={items}/>
-</div>, destination);
+ReactDOM.render(<Provider store={store}>
+  <TodoApp/>
+</Provider>, destination);
