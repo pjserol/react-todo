@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import { connect } from 'react-redux'
-import { addItem } from '../actions'
+import {connect} from 'react-redux'
+import {addItem} from '../actions'
 import "../css/TodoForm.css";
 
 class TodoForm extends Component {
