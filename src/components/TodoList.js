@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import TodoItems from "./TodoItems"
+import TodoItems from "../containers/TodoItems"
 import FlipMove from "react-flip-move";
 import "../css/TodoList.css"
 
