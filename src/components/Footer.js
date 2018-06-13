@@ -2,13 +2,13 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import FilterLink from "../containers/FilterLink";
 import {VisibilityFilters} from '../actions';
-import "../css/TodoFilter.css";
+import "../css/Footer.css";
 
 class Footer extends Component {
 
   render() {
     console.log("Footer | Number item : " + this.props.numberItemLeft);
-    return (<div className="todo-filter">
+    return (<div className="footer">
       <span>{this.props.numberItemLeft}
         items left</span>
       <FilterLink filter={VisibilityFilters.SHOW_ALL}>All</FilterLink>

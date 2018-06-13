@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import "../css/TodoHeader.css";
+import "../css/Header.css";
 
 class Header extends Component {
   render() {
-    return (<div className="todo-header">
+    return (<div className="header">
       <h1>Todo List</h1>
     </div>)
   }
