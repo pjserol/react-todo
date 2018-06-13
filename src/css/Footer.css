@@ -1,0 +1,23 @@
+.footer {
+  background-color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #FFF;
+}
+
+.footer span:before {
+  content: " | ";
+  font-weight: bold;
+}
+
+.footer span:first-child:before {
+  content: "";
+}
+
+.filter:hover {
+  cursor: pointer;
+}
+
+.filter.selected {
+    font-weight: bold;
+}
